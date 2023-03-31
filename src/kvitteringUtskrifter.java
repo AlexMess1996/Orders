@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class kvitteringUtskrifter {
+public class kvitteringUtskrifter extends ordercalculator{
 
     public static void main (String []args) throws InterruptedException {
         mainMenu();
@@ -96,7 +96,9 @@ public class kvitteringUtskrifter {
             if(var == 1){
                 registerReceipt();
             } else if(var==2){
-                System.out.println("Registering ordres program under construction...");
+                ordercalculator order_calc = new ordercalculator();
+                order_calc.print();
+                //System.out.println("Registering orders program under construction...");
             }else if(var==3){
                 registerBills();
             }
