@@ -8,8 +8,6 @@ public class ProgramInit extends Programs {
 
     public static void mainMenu() throws InterruptedException {
 
-        Programs p = new Programs();
-
         clearConsole();
         System.out.println("****************************************");
         System.out.println("Main Menu:");
@@ -22,46 +20,44 @@ public class ProgramInit extends Programs {
         System.out.print("Your input: ");
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-        p.clearConsole();
-        int application = 0;
+        clearConsole();
+        int application;
 
-        switch(input){
-            case 1:
-                p.clearConsole();
+        switch (input) {
+            case 1 -> {
+                clearConsole();
                 System.out.println("\n****************************************");
-                System.out.println("Receipt Text Registrator");
+                System.out.println("Receipt Text Register");
                 System.out.println("****************************************");
                 System.out.println("Loading...");
                 Thread.sleep(1500);
                 application = 1;
-                p.programInit(application);
-                break;
-
-            case 2:
+                programInit(application);
+            }
+            case 2 -> {
                 System.out.println("\n****************************************");
-                System.out.println("Order Registrator");
+                System.out.println("Order Register");
                 System.out.println("****************************************");
                 System.out.println("Loading...");
                 Thread.sleep(1500);
                 application = 2;
-                p.programInit(application);
-                break;
-
-            case 3:
+                programInit(application);
+            }
+            case 3 -> {
                 System.out.println("\n****************************************");
-                System.out.println("Bills Registrator");
+                System.out.println("Bills Register");
                 System.out.println("****************************************");
                 System.out.println("Loading...");
                 Thread.sleep(1500);
                 application = 3;
-                p.programInit(application);
-                break;
-
-            case 4:
+                programInit(application);
+            }
+            case 4 -> {
                 System.out.println("Shutting down...");
                 Thread.sleep(2000);
-                p.clearConsole();
+                clearConsole();
                 System.exit(0);
+            }
         }
     }
 
