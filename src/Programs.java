@@ -8,13 +8,11 @@ public class Programs {
 
     public static int programInit(int var) throws InterruptedException {
         boolean retry = true;
-
         while (retry == true){
             if(var == 1){
                 registerReceipt();
             } else if(var==2){
-                Programs order_calc = new Programs();
-                order_calc.print();
+                orderCalculator();
             }else if(var==3){
                 registerBills();
             }
@@ -39,7 +37,7 @@ public class Programs {
 
     public static void registerBills() throws InterruptedException {
 
-        double billSum = 0;
+        clearConsole();
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the data from the faktura");
         System.out.print("Amount of desired bills you want to register: ");
@@ -89,7 +87,6 @@ public class Programs {
         //end storing
         writeBillsToTxt(amount,date,companyName,typeOfBill,accNumbers,kidNumber,prices);
         for (int j = 0; j<prices.length; j++){
-            billSum += prices[j];
         }
         Thread.sleep(1000);
         System.out.println("Information stored!");
@@ -154,13 +151,12 @@ public class Programs {
 
         boolean matchDate = true;
         boolean matchPrice = true;
-        boolean datematch = false;
-        boolean priceMatch = false;
+        boolean datematch;
+        boolean priceMatch;
 
         String date = "";
-        Double prodPrice = 0.0;
-
-        double prodSum = 0;
+        double prodPrice = 0.0;
+        clearConsole();
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the data from the receipt: ");
         Thread.sleep(1000);
@@ -233,14 +229,14 @@ public class Programs {
         //writes data in a .txt file
         writeRecieptToTxt(prodAmount,purchaseDateArray,prodNameArray,prodLocationArray,prodPriceArray);
         for (int j = 0; j<prodPriceArray.length; j++){
-            prodSum += prodPriceArray[j];
         }
         System.out.println("Information stored!");
         Thread.sleep(1000);
         System.out.println("****************************************");
     }
 
-    public static void print() {
+    public static void orderCalculator() {
+        clearConsole();
         Scanner sc = new Scanner(System.in);
         System.out.println("Amount of orders:");
         int amount = sc.nextInt();
@@ -254,7 +250,7 @@ public class Programs {
         int type = sc.nextInt();
         System.out.println("Total earned for this delivery: " + sum(amount, km, type));
         try {
-            String filePath = "C:\\Users\\bruker\\Desktop\\demo.txt";
+            String filePath = "C:\\Users\\bruker\\Desktop\\orders.txt";
             FileOutputStream f = new FileOutputStream(filePath, true);
             String lineToAppend = "\r\nDelivery: " + "" + sum(amount, km, type);
             byte[] byteArr = lineToAppend.getBytes(); //converting string into byte array

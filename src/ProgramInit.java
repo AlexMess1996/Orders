@@ -34,7 +34,8 @@ public class ProgramInit extends Programs {
                 System.out.println("\n****************************************");
                 System.out.println("Receipt Text Registrator");
                 System.out.println("****************************************");
-                Thread.sleep(1000);
+                System.out.println("Loading...");
+                Thread.sleep(1500);
                 application = 1;
                 p.programInit(application);
                 break;
@@ -43,7 +44,8 @@ public class ProgramInit extends Programs {
                 System.out.println("\n****************************************");
                 System.out.println("Order Registrator");
                 System.out.println("****************************************");
-                Thread.sleep(1000);
+                System.out.println("Loading...");
+                Thread.sleep(1500);
                 application = 2;
                 p.programInit(application);
                 break;
@@ -52,7 +54,8 @@ public class ProgramInit extends Programs {
                 System.out.println("\n****************************************");
                 System.out.println("Bills Registrator");
                 System.out.println("****************************************");
-                Thread.sleep(1000);
+                System.out.println("Loading...");
+                Thread.sleep(1500);
                 application = 3;
                 p.programInit(application);
                 break;
