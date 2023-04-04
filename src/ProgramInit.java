@@ -1,7 +1,4 @@
-import java.io.FileOutputStream;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ProgramInit extends Programs {
 
