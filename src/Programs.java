@@ -61,6 +61,7 @@ public class Programs {
         String redundantDate = "";
         for (int i = 0; i < amount; i++) {
             if (i < 1) {
+                System.out.println();
                 System.out.print("Date: ");
                 String dateBill = sc.next();
                 redundantDate = dateBill;
@@ -89,7 +90,8 @@ public class Programs {
         for (int j = 0; j<prices.length; j++){
         }
         Thread.sleep(1000);
-        System.out.println("Information stored!");
+        System.out.println();
+        System.out.println("\nInformation stored!");
         System.out.println("****************************************");
     }
     public static void writeBillsToTxt(int amount, String [] date, String [] companyName, String [] typeOfBill,String [] accountNumber, String [] kidNumber, double [] price){
@@ -230,29 +232,37 @@ public class Programs {
         writeRecieptToTxt(prodAmount,purchaseDateArray,prodNameArray,prodLocationArray,prodPriceArray);
         for (int j = 0; j<prodPriceArray.length; j++){
         }
+        System.out.println();
         System.out.println("Information stored!");
         Thread.sleep(1000);
         System.out.println("****************************************");
     }
 
-    public static void orderCalculator() {
+    public static void orderCalculator() throws InterruptedException {
         clearConsole();
         Scanner sc = new Scanner(System.in);
         System.out.println("Amount of orders:");
         int amount = sc.nextInt();
         System.out.println("Kilometers: ");
         double km = sc.nextDouble();
+        System.out.println();
         System.out.println("Type of day: (Type the number you want to choose below...)");
         System.out.println("1: Weekday");
         System.out.println("2: Saturday");
         System.out.println("3: Sunday");
         System.out.println("Your input: ");
         int type = sc.nextInt();
-        System.out.println("Total earned for this delivery: " + sum(amount, km, type));
+        System.out.println();
+        System.out.println("Total earned in deliveries: " + sum(amount, km, type)+" NOK");
+        System.out.println();
+        System.out.println("Information stored!");
+        System.out.println("****************************************");
+        Thread.sleep(1000);
+
         try {
             String filePath = "C:\\Users\\bruker\\Desktop\\orders.txt";
             FileOutputStream f = new FileOutputStream(filePath, true);
-            String lineToAppend = "\r\nDelivery: " + "" + sum(amount, km, type);
+            String lineToAppend = "\r\nDelivery: " + "" + sum(amount, km, type)+" NOK";
             byte[] byteArr = lineToAppend.getBytes(); //converting string into byte array
             f.write(byteArr);
             f.close();
